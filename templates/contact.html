@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <main id="main">
+      <section>
+          <div class="header-image-wrapper header-image-about">
+              <div class="bg-background-header bg-background-mask" style="background-image: url({% static 'img/img-oders/about.jpg' %});">
+                  <div class="background-mask"></div>
+              </div>
+              <div class="header-image-content">
+                  <h1 class="desc-image-content text-center m-0 fs-16-sm text-center-xs">تماس با ما</h1>
+                  <p class="desc-image-content fs-25 m-0 fs-16-sm text-center-xs"> یک متن ساختگی و با سادگی تولید است.</p>
+              </div>
+          </div>
+      </section>
+      <section>
+          <div class="main-content-header container-fluid">
+              <div class="mat-card border-top-content p-5">
+                  <div class="row">
+                      <div class="col-xl-4">
+                          <div class="content-center">
+                              <i class="zmdi zmdi-home item-mat-icon"></i>
+                              <h3 class="fs-18 fw-600 text-primary pt-3">آدرس:</h3>
+                              <span>تهران-ونک-خیابان بهار</span>
+                          </div>
+                      </div>
+                      <div class="col-xl-4">
+                          <div class="content-center">
+                              <i class="zmdi zmdi-phone item-mat-icon"></i>
+                              <h3 class="fs-18 fw-600 text-primary pt-3">شماره تماس:</h3>
+                              <span>09123456789</span>
+                          </div>
+                      </div>
+                      <div class="col-xl-4">
+                          <div class="content-center">
+                              <i class="zmdi zmdi-email item-mat-icon"></i>
+                              <h3 class="fs-18 fw-600 text-primary pt-3">ایمیل:</h3>
+                              <span>info@house.com</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="divider w-100 mt-5"></div>
+                  <div class="row pt-6">
+                      <h3 class="w-100 text-center fs-18 fw-600">تماس با ما</h3>
+                          <div class="col-xl-4 col-sm-4 col-md-4">
+                              <div class="effect-label">
+                                  <input class="mat-form-field input-mail-footer" type="text">
+                                  <label class="field-label"> نام کاربری </label>
+                              </div>
+                          </div>
+                          <div class="col-xl-4 col-sm-4 col-md-4 pt-xs-1">
+                              <div class="effect-label">
+                                  <input class="mat-form-field input-mail-footer" type="text">
+                                  <label class="field-label">  شماره تماس </label>
+                              </div>
+                          </div>
+                          <div class="col-xl-4 col-sm-4 col-md-4 pt-xs-1">
+                              <div class="effect-label">
+                                  <input class="mat-form-field input-mail-footer" type="text">
+                                  <label class="field-label"> ایمیل </label>
+                              </div>
+                          </div>
+                  </div>
+                  <div class="form-group mt-5">
+                      <label class="form-field-label">متن پیام *</label>
+                      <textarea type="text" class="form-control text-left" rows="5">
+                      </textarea>
+                  </div>
+                  <div class="form-group content-center mt-5">
+                  <button class="btn btn-primary w-10" type="button">ارسال</button>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="mt-7">
+          <div class="container-fluid">
+              <div class="theme-container-contact-footer bg-primary">
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <div class="text-center pt-2 pb-2">
+                              <h2 class="fs-21 text-light font-weight-bold pt-3">آیا می خواهید خانه خود را بفروشید؟</h2>
+                              <p class="mb-0 text-light-gray"> یک متن ساختگی با سادگی در تولید طراحان گرافیک است.</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="row">
+                              <div class="col-sm-7 col-lg-6">
+                                  <div class="pt-1 pb-1 pl-7 item-call">
+                                      <span class="fs-14 text-light pl-6 txt-column-contact">همین حالا با ما تماس بگیرید</span>
+                                      <h2 class="fs-21 font-weight-bold text-light nowrap"><i class="zmdi zmdi-phone fs-50"></i>
+                                          (+100) 123 456 7890</h2>
+                                  </div>
+                              </div>
+                              <div class="col-sm-5 col-lg-6">
+                                  <div class="text-right pr-6 pt-6 item-btn-call">
+                                      <a class="btn btn-secondary" href="">با ما در تماس باشید</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock %}

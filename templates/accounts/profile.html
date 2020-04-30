@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main">
+    <section class="mt-4 mb-4">
+        <div class="container-fluid pl-0 pr-0">
+            <div class="item-account">
+                <div class="row">
+                    <div class="col-xl-3  col-sm-6 col-lg-4 horizontal-account-sidenav" id="account-sidenav">
+                        <a class="close-card hide-xl-max"><i class="zmdi zmdi-close mr-3" id="close-card"></i></a>
+                        <div class="mat-card p-4">
+                            <div class="account-sidenav">
+                                <div class="header-account-sidenav pb-3">
+                                    <i class="zmdi zmdi-account"></i>
+                                    <span class="text-muted pl-2 fs-18">خوش آمدید : {{ user.username }}</span>
+                                </div>
+                                <div class="divider"></div>
+                                <ul class="pt-4 p-2 pl-0">
+                                    <li class="p-3"><a href="{% url 'my_properties'  user.pk %}" class="text-muted"> <i class="zmdi zmdi-view-list fs-25"></i> <span class="pl-2 fs-14">املاک من</span> 
+                                    {% if houses %}<span class="badge badge-danger ml-2">{{ count }}</span>{% endif %}</a></li>
+                                    <li class="p-3"><a href="compare.html" class="text-muted"> <i class="zmdi zmdi-repeat fs-25"></i> <span class="pl-2 fs-14"> مقایسه</span> </a></li>
+                                    <li class="p-3"><a href="{% url 'submit_house' %}" class="text-muted"> <i class="zmdi zmdi-plus-circle fs-25"></i> <span class="pl-2 fs-14"> ثبت ملک</span> </a></li>
+                                    <li class="p-3"><a href="{% url 'logout' %}" class="text-muted"> <i class="zmdi zmdi-power fs-25"></i> <span class="pl-2 fs-14">خروج</span> </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 mb-3 hide-xl-max">
+                        <div class="mat-card p-5 d-flex">
+                            <div class="w-50">
+                                <i class="zmdi zmdi-more-vert fs-24 pointer-event" id="cl-account-sidenav"></i>
+                            </div>
+                            <div class="w-50 text-right">
+                                <h3 class="fs-17 mb-0 pt-1 fw-600 text-muted"> حساب من</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-8 col-sm-12">
+                        <div class="bg-drawer-backdrop hiden-xl"></div>
+                        <div class="mat-card p-4">
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="p-4">
+                                        <h2 class="fs-21 fw-600 text-muted text-center">جزئیات حساب</h2>
+                                        <div class="effect-label mt-5">
+                                            <input class="mat-form-field input-mail-footer" type="text" >
+                                            <label class="field-label"> نام کاربری </label>
+                                        </div>
+                                        <div class="effect-label mt-5">
+                                            <input class="mat-form-field input-mail-footer" type="email">
+                                            <label class="field-label">  ایمیل </label>
+                                        </div>
+                                        <div class="effect-label mt-5">
+                                            <input class="mat-form-field input-mail-footer" type="text">
+                                            <label class="field-label">  شماره تماس </label>
+                                        </div>
+                                        <p class="mt-5">
+                                            <span class="uppercase fw-500">تصویر </span>
+                                        </p>
+                                        <div class="item-input-file">
+                                            <label class="text-center mb-0">   <i class="zmdi zmdi-plus"></i> <input type="file"></label>
+                                        </div>
+                                        <div class="effect-label mt-5">
+                                            <input class="mat-form-field input-mail-footer" type="text">
+                                            <label class="field-label"> فیسبوک </label>
+                                        </div>
+                                        <div class="effect-label mt-5">
+                                            <input class="mat-form-field input-mail-footer" type="text">
+                                            <label class="field-label">  توییتر  </label>
+                                        </div>
+                                        <div class="effect-label mt-5">
+                                            <input class="mat-form-field input-mail-footer" type="text">
+                                            <label class="field-label">  لینکدین </label>
+                                        </div>
+                                        <div class="text-center mt-5">
+                                            <button class="btn btn-primary">  ایجاد حساب  </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="p-4">
+                                        <h2 class="fs-21 fw-600 text-muted text-center">تغییر رمز عبور</h2>
+                                        <div class="effect-label mt-5">
+                                            <input class="mat-form-field input-mail-footer" type="text">
+                                            <label class="field-label"> رمز عبور فعلی </label>
+                                        </div>
+                                        <div class="effect-label mt-5">
+                                            <input class="mat-form-field input-mail-footer" type="text">
+                                            <label class="field-label"> رمز عبور جدید </label>
+                                        </div>
+                                        <div class="effect-label mt-5">
+                                            <input class="mat-form-field input-mail-footer" type="text">
+                                            <label class="field-label"> رمزعبور جدید را تأیید کنید </label>
+                                        </div>
+                                        <div class="text-center mt-5">
+                                            <button class="btn btn-primary">تغییر رمز</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

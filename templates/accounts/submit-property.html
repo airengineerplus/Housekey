@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main id="main">
+      <section class="mt-4 mb-4">
+          <div class="container-fluid pl-0 pr-0">
+              <div class="mat-card p-4">
+                  <div class="item-submit-property stepper-horizontal">
+                      <div class="row horizontal-stepper-header">
+                          <div class="step-header" id="step-1">
+                              <div class="step-icon active"><i class="icon-step"><span>1</span></i>
+                              </div>
+                              <span>پایه</span>
+                          </div>
+                          <div class="stepper-horizontal-line"></div>
+                          <div class="step-header" id="step-2">
+                              <div class="step-icon"><i class="icon-step"><span>2</span></i>
+                              </div>
+                              <span>نشانی</span>
+                          </div>
+                          <div class="stepper-horizontal-line"></div>
+                          <div class="step-header" id="step-3">
+                              <div class="step-icon"><i class="icon-step"><span>3</span></i>
+                              </div>
+                              <span>اضافی</span>
+                          </div>
+                          <div class="stepper-horizontal-line"></div>
+                          <div class="step-header" id="step-4">
+                              <div class="step-icon"><i class="icon-step"><span>4</span></i>
+                              </div>
+                              <span> گالری</span>
+                          </div>
+                          <div class="stepper-horizontal-line"></div>
+                          <div class="step-header" id="step-5">
+                              <div class="step-icon"><i class="icon-step"><span>5</span></i>
+                              </div>
+                              <span>تائیدیه</span>
+                          </div>
+                      </div>
+                      <div class="horizontal-content-stepper">
+                          <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                              <div class="row">
+                                  <div class="step-content mt-4">
+                                      <div class="tab">
+                                          <h1 class="text-center fs-28 mb-5">پایه</h1>
+                                          <div class="effect-label">
+                                              <input class="mat-form-field input-mail-footer" type="text" name="title">
+                                              <label for="title" class="field-label"> عنوان  </label>
+                                          </div>
+                                          <div class="effect-label mt-5">
+                                              <input class="mat-form-field input-textarea-footer" type="text" name="description">
+                                              <label for="description" class="field-label">  متن پیام </label>
+                                          </div>
+                                          <div class="row mt-5">
+                                              <div class="col-xl-6 col-sm-6 col-md-6">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text" name="price">
+                                                      <label  for="price" class="field-label">  قیمت </label>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xl-6 col-sm-6 col-md-6 pt-xs-1">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text">
+                                                      <label class="field-label">  قیمت </label>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row mt-5">
+                                              <div class="col-xl-6 col-sm-6 col-md-6">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text" name="address">
+                                                      <label for="address" class="field-label">  خیابان </label>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xl-6 col-sm-6 col-md-6 pt-xs-1">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text">
+                                                      <label class="field-label">  نوع ملک </label>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="tab">
+                                          <h1 class="text-center fs-28 mb-5">نشانی</h1>
+                                          <div class="effect-label">
+                                              <input class="mat-form-field input-mail-footer" type="text">
+                                              <label class="field-label">  نام محل </label>
+                                          </div>
+                                          <div class="row mt-5">
+                                              <div class="col-xl-6 col-sm-6 col-md-6">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text" name="city">
+                                                      <label for="city" class="field-label">  شهر </label>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xl-6 col-sm-6 col-md-6 pt-xs-1">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text" name="zipcode">
+                                                      <label for="zipcode" class="field-label">  کد پسستی </label>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="tab">
+                                          <h1 class="text-center fs-28 mb-5">اضافی</h1>
+                                          <div class="row">
+                                              <div class="col-xl-4 col-sm-4 col-md-4">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text" name="bedrooms">
+                                                      <label for="bedrooms" class="field-label">  اتاق خواب </label>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xl-4 col-sm-4 col-md-4 pt-xs-1">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text" name="garage">
+                                                      <label for="garage" class="field-label">  پارکینگ </label>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xl-4 col-sm-4 col-md-4 pt-xs-1">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text">
+                                                      <label class="field-label">  اتاق </label>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row mt-5">
+                                              <div class="col-xl-6 col-sm-6 col-md-6">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text" name="year_of_built">
+                                                      <label for="year_of_built" class="field-label">  سال ساخت </label>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xl-6 col-sm-6 col-md-6-6 pt-xs-1">
+                                                  <div class="effect-label">
+                                                      <input class="mat-form-field input-mail-footer" type="text">
+                                                      <label class="field-label">  منطقه </label>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-xl mt-6">
+                                                  <p class="text-gray">امکانات</p>
+                                                  <div>
+                                                      <ul class="p-0 item-check-features">
+                                                          <li>
+                                                              <label class="mat-checkbox">
+                                                                  <span class="txt-mat-checkbox">تهویه هوا</span>
+                                                                  <input type="checkbox">
+                                                                  <span class="checkmark"></span>
+                                                              </label>
+                                                          </li>
+                                                          <li class="ml-4">
+                                                              <label class="mat-checkbox">
+                                                                  <span class="txt-mat-checkbox"> اینترنت</span>
+                                                                  <input type="checkbox">
+                                                                  <span class="checkmark"></span>
+                                                              </label>
+                                                          </li>
+                                                          <li class="ml-4">
+                                                              <label class="mat-checkbox">
+                                                                  <span class="txt-mat-checkbox"> پارکینگ</span>
+                                                                  <input type="checkbox">
+                                                                  <span class="checkmark"></span>
+                                                              </label>
+                                                          </li>
+                                                          <li class="ml-4">
+                                                              <label class="mat-checkbox">
+                                                                  <span class="txt-mat-checkbox"> استخر</span>
+                                                                  <input type="checkbox">
+                                                                  <span class="checkmark"></span>
+                                                              </label>
+                                                          </li>
+                                                          <li class="ml-4">
+                                                              <label class="mat-checkbox">
+                                                                  <span class="txt-mat-checkbox"> سالن ورزشی</span>
+                                                                  <input type="checkbox">
+                                                                  <span class="checkmark"></span>
+                                                              </label>
+                                                          </li>
+                                                      </ul>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="tab">
+                                          <h1 class="text-center fs-28 mb-5"> گالری</h1>
+                                          <div class="row mt-7">
+                                              <div class="col-xl">
+                                                  <p>
+                                                      <span class="uppercase fw-500">گالری </span>
+                                                      <span class="text-muted mx-3 fs-14">(حداکثر 8 تصویر)</span>
+                                                  </p>
+                                                  <div class="item-input-file">
+                                                    <label  class="text-center mb-0">   <i class="zmdi zmdi-plus"></i> <input type="file" name="file" id="house-img"></label>
+                                                    <img src="" id="house-img-tag" width="200px" />
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="tab">
+                                          <div class="text-center icon-checked-step mt-6">
+                                              <i class="zmdi zmdi-check"></i>
+                                              <h2 class="mt-3 fw-600 fs-18 mt-3">تبریک می گویم!</h2>
+                                              <p class="text-muted fs-14 mt-3"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگرها و متون ، اما روزنامه ها و مجلات در ستون ها و ردیف های مورد نیاز و نیازهای فعلی فن آوری و برنامه های متنوع با هدف بهبود کارایی.</p>
+                                              <button class="btn button-accent mt-3" type="button" id="return-first">بازگشت به ثبت ملک جدید</button>
+                                          </div>
+                                      </div>
+                                      <div class="row mt-7 mb-5">
+                                          <div class="col-xl-6 col-6">
+                                              <div class="text-left">
+                                                  <button class="btn btn-primary prev-Btn" type="button" id="prevBtn" onclick="nextPrev(-1)"> بازگشت</button>
+                                              </div>
+                                          </div>
+                                          <div class="col-xl-6 col-6">
+                                              <div class="text-right">
+                                                  <button class="btn btn-primary next-Btn" type="button" id="nextBtn" onclick="nextPrev(1)"> بعد</button>
+                                                  <button class="btn btn-primary next-Btn d-none" type="button" id="btn-submit" onclick="nextPrev(1)">تایید</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock %}
+{% block PreviewImage %}
+  <script type="text/javascript">
+      function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  $('#house-img-tag').attr('src', e.target.result);
+              }
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+      $("#house-img").change(function(){
+          readURL(this);
+      });
+  </script>
+{% endblock %}

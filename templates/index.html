@@ -1,0 +1,1332 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- Alerts -->
+{% include '_alerts.html' %}
+  <main id="main">
+      <section>
+          <div class="header-carousel">
+              <div class="swiper-container slider-main-header">
+                  <div class="swiper-wrapper">
+                      <div class="swiper-slide slide-item" style="background-image: url({% static 'img/apartment/1-big.jpg' %});">
+
+                          <div class="item-slide-info">
+                              <h1 class="slide-title fs-35">خانه لوکس راحت</h1>
+                              <p class="mb-5  mt-3"><i class="zmdi zmdi-pin mr-1 text-primary fs-35"></i>خ ولیعصر(عج) -خ فرشته-تقاطع فرشته و بوستان</p>
+                              <button class="btn btn-primary btn-lg fs-24">2،550،000 تومان</button>
+                          </div>
+                      </div>
+                      <div class="swiper-slide slide-item" style="background-image: url({% static 'img/apartment/1-big.jpg' %});">
+                          <div class="item-slide-info">
+                              <h1 class="slide-title fs-30">فضای اداری لوکس</h1>
+                              <p class="mb-5  mt-3"><i class="zmdi zmdi-pin mr-1 text-primary fs-35"></i>خ ولیعصر(عج) -خ فرشته-تقاطع فرشته و بوستان</p>
+                              <button class="btn btn-primary btn-lg fs-24">5000000 تومان</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="swiper-button-next btn-swiper-button-next"></div>
+                  <div class="swiper-button-prev btn-swiper-button-next"></div>
+              </div>
+          </div>
+          <div class="main-content">
+              <div class="container-fluid">
+                  <div class="row mat-card pt-4 pb-3">
+                      <div class="w-100 pl-0 pr-3">
+                          <form action="">
+                              <div class="form row no-gutters search-wrapper main-search-form pt-3">
+                                  <div class="form-group col-xl-4 col-lg-4 col-sm-6  pr-xs-0">
+                                      <div class="dropdown">
+                                          <label class="form-field-label">نوع ملک</label>
+                                          <button class="btn btn-dropdown-toggle dropdown-toggle fs-14" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                                                                      انتخاب
+                                                                                  </button>
+                                          <div class="dropdown-menu mat-select-panel animated zoomIn w-100" id="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                              <a class="dropdown-item text-gray fs-14" id="option-text1">خانه</a>
+                                              <a class="dropdown-item text-gray fs-14" id="option-text1">ویلا</a>
+                                              <a class="dropdown-item text-gray fs-14" id="option-text1">مغازه</a>
+                                              <a class="dropdown-item text-gray fs-14" id="option-text2">آپارتمان</a>
+                                              <a class="dropdown-item text-gray fs-14" id="option-text3">دفتر کار</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group col-xl-4 col-lg-4 col-sm-6  pr-xs-0">
+                                      <label class="form-field-label">نوع معامله</label>
+                                      <button class="btn btn-dropdown-toggle dropdown-toggle fs-14" type="button" id="dropdownMenu2" data-toggle="dropdown">
+                                          وضعیت املاک
+                                      </button>
+                                      <ul class="dropdown-menu animated zoomIn property-status mat-select-panel w-96" id="dropdown-menu1">
+                                          <li>
+                                              <label class="mat-checkbox">
+                                                  <span class="txt-mat-checkbox">برای فروش</span>
+                                                  <input type="checkbox" value="فروش">
+                                                  <span class="checkmark"></span>
+                                              </label>
+                                          </li>
+                                          <li>
+                                              <label class="mat-checkbox">
+                                                  <span class="txt-mat-checkbox">برای اجاره</span>
+                                                  <input type="checkbox" value="اجاره">
+                                                  <span class="checkmark"></span>
+                                              </label>
+                                          </li>
+                                          <li>
+                                              <label class="mat-checkbox">
+                                                  <span class="txt-mat-checkbox">پیشنهاد ویژه</span>
+                                                  <input type="checkbox" value="ویژه">
+                                                  <span class="checkmark"></span>
+                                              </label>
+                                          </li>
+                                          <li>
+                                              <label class="mat-checkbox">
+                                                  <span class="txt-mat-checkbox">مشارکت</span>
+                                                  <input type="checkbox" value="مشارکت">
+                                                  <span class="checkmark"></span>
+                                              </label>
+                                          </li>
+                                      </ul>
+                                  </div>
+                                  <div class="form-group col-6 col-xl-2 col-sm-3 col-lg-2">
+                                      <label class="form-field-label">قیمت</label>
+                                      <input type="text" class="form-control" placeholder="از">
+                                  </div>
+                                  <div class="form-group col-6 col-sm-3 col-xl-2 col-lg-2">
+                                      <input type="text" class="form-control" placeholder="تا">
+                                      <i class="zmdi zmdi-minus"></i>
+                                  </div>
+                              </div>
+                              <div class="form row no-gutters search-wrapper collapse" id="collapse-form">
+                                  <div class="form-group  col-xl-4 col-lg-4 col-sm-6  mt-3">
+                                      <label class="form-field-label">شهر</label>
+                                      <input type="text" class="form-control dropdown-toggle" placeholder="انتخاب کنید">
+                                  </div>
+                                  <div class="form-group  col-xl-4 col-lg-4 col-sm-6  mt-3">
+                                      <label class="form-field-label">کد پستی</label>
+                                      <input type="text" class="form-control dropdown-toggle" placeholder="کد پستی">
+                                  </div>
+                                  <div class="form-group  col-xl-4 col-lg-4 col-sm-6  mt-3">
+                                      <label class="form-field-label">محله</label>
+                                      <input type="text" class="form-control dropdown-toggle" placeholder="نام محله">
+                                  </div>
+                                  <div class="form-group  col-xl-4 col-lg-4 col-sm-6  mt-3">
+                                      <label class="form-field-label">خیابان</label>
+                                      <input type="text" class="form-control dropdown-toggle" placeholder="نام خیابان">
+                                  </div>
+                                  <div class="form-group col-6 col-xl-2 col-sm-3 col-lg-2 mt-3 pr-4">
+                                      <label class="form-field-label">سال ساخت</label>
+                                      <input type="text" class="form-control" placeholder="از">
+                                  </div>
+                                  <div class="form-group col-6 col-sm-3 col-xl-2 col-lg-2 mt-3 pl-4">
+                                      <label class="form-field-label text-hide">به</label>
+                                      <input type="text" class="form-control" placeholder="تا">
+                                      <i class="zmdi zmdi-minus"></i>
+                                  </div>
+                                  <div class="form-group col-6 col-xl-2 col-sm-3 col-lg-2 mt-3 pr-4">
+                                      <label class="form-field-label">اتاق خواب</label>
+                                      <input type="text" class="form-control" placeholder="از">
+                                  </div>
+                                  <div class="form-group col-6 col-sm-3 col-xl-2 col-lg-2 mt-3 pl-4">
+                                      <label class="form-field-label text-hide">به</label>
+                                      <input type="text" class="form-control" placeholder="تا">
+                                      <i class="zmdi zmdi-minus"></i>
+                                  </div>
+
+                                  <div class="pl-4">
+                                      <p class="text-gray">کاراکترها</p>
+                                      <div class="d-flex card-group">
+                                          <ul class="p-0 item-check-features">
+                                              <li>
+                                                  <label class="mat-checkbox">
+                                                      <span class="txt-mat-checkbox">تهویه هوا</span>
+                                                      <input type="checkbox">
+                                                      <span class="checkmark"></span>
+                                                  </label>
+                                              </li>
+                                              <li class="ml-4">
+                                                  <label class="mat-checkbox">
+                                                      <span class="txt-mat-checkbox"> اینترنت</span>
+                                                      <input type="checkbox">
+                                                      <span class="checkmark"></span>
+                                                  </label>
+                                              </li>
+                                              <li class="ml-4">
+                                                  <label class="mat-checkbox">
+                                                      <span class="txt-mat-checkbox"> استخر</span>
+                                                      <input type="checkbox">
+                                                      <span class="checkmark"></span>
+                                                  </label>
+                                              </li>
+                                              <li class="ml-4">
+                                                  <label class="mat-checkbox">
+                                                      <span class="txt-mat-checkbox"> سالن ورزشی</span>
+                                                      <input type="checkbox">
+                                                      <span class="checkmark"></span>
+                                                  </label>
+                                              </li>
+                                              <li class="ml-4">
+                                                  <label class="mat-checkbox">
+                                                      <span class="txt-mat-checkbox"> پارکینگ</span>
+                                                      <input type="checkbox">
+                                                      <span class="checkmark"></span>
+                                                  </label>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="buttons search-wrapper content-center pt-3 pb-3">
+                                      <a class="btn btn-primary" data-toggle="collapse" href="#collapse-form">جستجو </a>
+                                      <a href="#" class="btn btn-danger">حذف کنید</a>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="row mt-4">
+                      <div class="col-xl-12 p-0"><span class="mat-standard-chip label-chip-selected">   {{ count }}  ملک یافت شد</span></div>
+                  </div>
+                  <div class="row mt-1">
+                      <div class="mat-card border-0 mt-3 w-100">
+                          <div class="card-body p-2">
+                              <div class="row">
+                                  <div class="col-lg-6 col-md-6 col-sm-6 text-center-xs align-self-center">
+                                      <div class="dropdown">
+                                          <button class="dropdown-toggle  mat-button border-0 fs-14 text-gray" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                               مرتب سازی بر اساس
+                                          </button>
+                                          <div class="dropdown-menu btn-sort-result animated zoomIn" aria-labelledby="sort-result">
+                                              <a class="dropdown-item fs-14 text-gray" href="#">جدیدترین</a>
+                                              <a class="dropdown-item fs-14 text-gray" href="#">اولین</a>
+                                              <a class="dropdown-item fs-14 text-gray" href="#">محبوب</a>
+                                              <a class="dropdown-item fs-14 text-gray" href="#">قیمت (پایین به بالا)</a>
+                                              <a class="dropdown-item fs-14 text-gray" href="#">قیمت (بالا به پایین)</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 text-right hiden-sm">
+                                      <div class="item-list-view pt-2">
+                                          <a class="shorting_icon list_view text-gray" href="javascript:Void(0);"> <i class="zmdi zmdi-view-list fs-25"></i> </a>
+                                          <a class="text-gray position-relative " id="grid_two_list">
+                                              <i class="ti-layout-grid2-alt fs-17"></i>
+                                          </a>
+                                          <a class="text-gray hiden-lg" id="grid_three_list"> <i class="zmdi zmdi-apps fs-24"></i> </a>
+                                          <a class="shorting_icon grid_view active text-gray hiden-lg hiden-xl" href="javascript:Void(0);"> <i class="zmdi zmdi-view-comfy fs-26 "></i> </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="section-resulte-list">
+          <div class="container-fluid pl-0 pr-0">
+              <div class="row resulte_house_container grid_view">
+                {% for house in houses %}
+                  {% if house.is_published %}
+                    <div class="col-lg-4 col-xl-3 col-sm-6 mb-3">
+                        <div class="item-resulte mat-card">
+                            <div class="house_img">
+                                <div class="tag-text">
+                                    {% if house.is_for == 'SA' %}
+                                        <span class="property-status-label label-green">برای فروش </span>
+                                    {% else %}
+                                        <span class="property-status-label label-green"> برای اجاره</span>
+                                    {% endif %}
+                                </div>
+                                <div class="popup-compare-container hide">
+                                    <div class="toolbar-house-row">
+                                        <a class="btn btn-primary float-left text-light">مقایسه کنید - 1</a>
+                                        <a class="cd-popup-close img-replace"></a>
+                                    </div>
+                                    <div class="popup-list-item-content mt-3">
+                                        <div class="flex-column">
+                                            <h3 class="toolbar-list-text">خانه با استخر</h3>
+                                            <span class="text-gray fs-12 fs-10-sm">   <i class="zmdi zmdi-pin mr-1 fs-15"></i>ونک -  خیابان ملاصدرا </span>
+                                        </div>
+                                        <div class="mt-4">
+                                            <span class="text-primary fs-16 pl-7">1.3 میلیون تومان</span>
+                                            <a class="float-right remove-list-house pl-6"><i class="zmdi zmdi-close"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-img-wrapper-result">
+                                    <div class="swiper-container swiper1">
+                                        <div class="item-card-control-icons">
+                                            <a class="toastr">
+                                                <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                            </a>
+                                            <a id="popup-trigger1">
+                                                <i class="zmdi zmdi-repeat"></i>
+                                            </a>
+                                        </div>
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="{{ house.photo_main.url }}" alt="" class="swiper-lazy">
+                                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="{{ house.photo_main.url }}" alt="" class="swiper-lazy">
+                                                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                            </div>
+                                        </div>
+                                        <!-- Add Pagination -->
+                                        <div class="swiper-pagination1"></div>
+                                        <div class="swiper-button-next swiper-button-white"></div>
+                                        <div class="swiper-button-prev swiper-button-white"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="house_info p-4">
+                                <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">{{ house.title }}</h5></a>
+                                <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i> {{ house.address }}</p>
+                                <h6 class="font-weight-bold mb-3 text-primary mb-5 price">{{ house.price }} تومان
+                                <span class="item-ratings float-right">
+                                              <i class="zmdi zmdi-star"></i>
+                                              <i class="zmdi zmdi-star"></i>
+                                              <i class="zmdi zmdi-star"></i>
+                                              <i class="zmdi zmdi-star"></i>
+                                          </span>
+                                </h6>
+                                <div class="pr_desc">
+
+                                </div>
+                                <p class="features-item-offer fs-14 text-gray mt-5">
+                                    <span>متراژ: <span>{{ house.area }} متر</span> </span>
+                                    <span class="pl-0"> اتاق خواب: <span>{{ house.bedrooms }}</span> </span> <span class="pl-0"> حمام: <span>2</span> </span>
+                                    <span class="pl-0"> گاراژ: <span>{{ house.garage }}</span> </span></p>
+                                <div class="house_action_box">
+                                    <div class="item-features mt-3">
+                                        <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                            <span class="float-right">{{ house.area }} متر</span></p>
+                                        <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                            <span class="float-right">{{ house.bedrooms }}</span></p>
+                                        <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                            <span class="float-right">{{ house.bathrooms }}</span></p>
+                                        <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                            <span class="float-right">{{ house.garage }}</span></p>
+                                    </div>
+                                    <div class="item-footer-card mt-4 pt-1">
+                                <span class="fs-13 text-gray line-height-3">
+                                              <i class="zmdi zmdi-calendar-note fs-16"></i> {{ house.jpublish }}
+                                                 <a href="{% url 'detail' house.pk %}" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                          </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+
+
+              <div class="row">
+                  <div class="col-xl-12 buttons text-center mt-6">
+                      <a href="#" class="btn btn-primary"> دفعات بیشتر </a>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section>
+          <div class="section-default item-mission">
+              <h1 class="section-title text-center pt-3 font-weight-bold">ماموریت</h1>
+              <div class="container-fluid pr-0 pl-0">
+                  <div class="card">
+                      <div class="row">
+                          <div class="col-lg-12 col-xl-6 pl-6">
+                              <div class="row mt-5">
+                                  <div class="col-lg-6 col-md-6 col-sm-6">
+                                      <div class="item-box-features">
+                                          <i class="zmdi zmdi-money mb-3 item-mat-icon"></i>
+                                          <h4>پس انداز کنید</h4>
+                                          <p class="text-gray fs-14"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6">
+                                      <div class="item-box-features">
+                                          <i class="zmdi zmdi-thumb-up  mb-3 item-mat-icon"></i>
+                                          <h4>ایده بهتر است</h4>
+                                          <p class="text-gray fs-14"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 mt-5">
+                                      <div class="item-box-features">
+                                          <i class="zmdi zmdi-accounts-alt mb-3 item-mat-icon"></i>
+                                          <h4>مشارکت</h4>
+                                          <p class="text-gray fs-14"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 mt-5">
+                                      <div class="item-box-features">
+                                          <i class="zmdi zmdi-search mb-3 item-mat-icon"></i>
+                                          <h4>پیدا کردنش راحته</h4>
+                                          <p class="text-gray fs-14"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-6 hiden-xl">
+                              <div class="item-img-mission">
+                                  <img src="{% static 'img/img-oders/mission.jpg' %}" alt="">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="mt-2">
+          <div class="container-fluid pr-0 pl-0">
+              <div class="item-our-services">
+                  <h1 class="section-title text-center pt-7 font-weight-bold fs-28">خدمات ما</h1>
+                  <div class="row">
+                      <div class="col-lg-6 col-xl-3 mb-3">
+                          <div class="card">
+                              <div class="card-body text-center">
+                                  <i class="zmdi zmdi-pin item-mat-icon"></i>
+                                  <h2 class="fs-18 mt-3 mb-5">متن ساختگی</h2>
+                                  <p class="text-gray fs-14"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-xl-3 mb-3">
+                          <div class="card">
+                              <div class="card-body text-center">
+                                  <i class="zmdi zmdi-accounts-alt item-mat-icon"></i>
+                                  <h2 class="fs-18 mt-3 mb-5">ملک خود را در هر مکانی پیدا کنید </h2>
+                                  <p class="text-gray fs-14"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-xl-3 mb-3">
+                          <div class="card">
+                              <div class="card-body text-center">
+                                  <i class="zmdi zmdi-home item-mat-icon"></i>
+                                  <h2 class="fs-18 mt-3 mb-5">خرید یا اجاره املاک و مستغلات </h2>
+                                  <p class="text-gray fs-14"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-6 col-xl-3 mb-3">
+                          <div class="card">
+                              <div class="card-body text-center">
+                                  <i class="zmdi zmdi-format-list-bulleted item-mat-icon"></i>
+                                  <h2 class="fs-18 mt-3 mb-5">متن ساختگی</h2>
+                                  <p class="text-gray fs-14"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="mt-8">
+          <div class="section-default section-people-saying">
+              <h1 class="section-title text-center pt-2 font-weight-bold fs-28">آنچه مردم می گویند</h1>
+              <div class="slider-swiper-saying">
+                  <div class="swiper-container swiper-saying">
+                      <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                              <div class="content-swiper text-center content-center">
+                                  <img src="{% static 'img/profile/adam.jpg' %}" alt="" class="swiper-lazy-img">
+                                  <p class="mt-6">
+                                      <i class="zmdi zmdi-quote float-left text-primary fs-22"></i><br>
+                                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                                  <br><i class="zmdi zmdi-quote float-right text-primary fs-22"></i>
+                                  </p>
+                                  <h3 class="author fs-16 font-weight-bold mt-7">آقای آدام سندلر</h3>
+                                  <p class="fs-14 text-gray">مدیر کل</p>
+                              </div>
+                          </div>
+                          <div class="swiper-slide">
+                              <div class="content-swiper text-center content-center">
+                                  <img src="{% static 'img/profile/adam.jpg' %}" alt="" class="swiper-lazy-img">
+                                  <p class="mt-6">
+                                      <i class="zmdi zmdi-quote float-left text-primary fs-22"></i><br>
+                                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                                  <br><i class="zmdi zmdi-quote float-right text-primary fs-22"></i>
+                                  </p>
+                                  <h3 class="author fs-16 font-weight-bold mt-7">آقای آدام سندلر</h3>
+                                  <p class="fs-14 text-gray">مدیر کل</p>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Add Pagination -->
+                      <div class="pagination-swiper-saying"></div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="mt-3">
+          <div class="item-hot-offer">
+              <h1 class="section-title text-center pt-7 font-weight-bold fs-28">ارائه داغ امروز</h1>
+              <div class="container-fluid pl-0 pr-0">
+                  <div class="item-resulte mat-card">
+                      <div class="row">
+                          <div class="col-lg-5 col-md-6 col-sm-6">
+                              <div class="tag-text">
+                                  <span class="property-status-label label-green">برای فروش </span>
+                              </div>
+                              <div class="slider-img-wrapper-result">
+                                  <div class="swiper-container swiper1">
+                                      <div class="item-card-control-icons">
+                                          <a class="toastr">
+                                              <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                          </a>
+                                          <a href="#">
+                                              <i class="zmdi zmdi-repeat"></i>
+                                          </a>
+                                      </div>
+                                      <div class="swiper-wrapper">
+                                          <div class="swiper-slide">
+                                              <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                              <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                          </div>
+                                          <div class="swiper-slide">
+                                              <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                              <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                          </div>
+                                      </div>
+                                      <!-- Add Pagination -->
+                                      <div class="swiper-pagination1"></div>
+                                      <div class="swiper-button-next swiper-button-white"></div>
+                                      <div class="swiper-button-prev swiper-button-white"></div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-7 col-md-6 col-sm-6 pl-0">
+                              <div class="card-info-hot-offer">
+                                  <a href="#" class="text-dark">
+                                      <h5 class="font-weight-bold title-card-info pt-5 fs-25">فروش خانه ویلایی</h5></a>
+                                  <p class="mb-5 fs-12 pt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>خ ولیعصر(عج) -خ فرشته-تقاطع فرشته و بوستان</p>
+                                  <h6 class="font-weight-bold mb-3 text-primary mb-5 price fs-22">4500 تومان
+                                  <span class="item-ratings float-right pr-4">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                  </h6>
+                                  <div class="pr_desc-item-hot-offer">
+                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز
+                                  </div>
+                                  <p class="features-item-offer fs-14 text-gray mt-4">
+                                      <span>متراژ: <span>1700 متر</span> </span>
+                                      <span class="pl-0"> اتاق خواب: <span>5</span> </span> <span class="pl-0"> حمام: <span>2</span> </span>
+                                      <span class="pl-0"> گاراژ: <span>2</span> </span></p>
+                                  <div class="house_action_box">
+                                      <div class="item-footer-card mt-4 pt-1">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-18 pr-1"></i> ۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right mr-4">جزئیات</a>
+                                        </span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section>
+          <div class="item-featured-properties">
+              <h1 class="section-title text-center pt-7 font-weight-bold fs-28">خصوصیات ویژه</h1>
+              <div class="container-fluid pr-0 pl-0">
+                  <div class="row">
+                      <div class="swiper-container featured-properties">
+                          <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>خ ولیعصر(عج) -خ فرشته-تقاطع فرشته و بوستان</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">45000 تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">1500 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-4 pt-1">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i> ۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>خ ولیعصر(عج) -خ فرشته-تقاطع فرشته و بوستان</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">45000 تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">1500 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-4 pt-1">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i> ۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>خ ولیعصر(عج) -خ فرشته-تقاطع فرشته و بوستان</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">45000 تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">1500 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-4 pt-1">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i> ۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>خ ولیعصر(عج) -خ فرشته-تقاطع فرشته و بوستان</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">{{price}} تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">1500 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-4 pt-1">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i> ۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>خ ولیعصر(عج) -خ فرشته-تقاطع فرشته و بوستان</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">45000 تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">1500 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-4 pt-1">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i> ۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- Add Pagination -->
+                          <div class="swiper-button-next featured-properties  btn-swiper-button-next"></div>
+                          <div class="swiper-button-prev featured-properties  btn-swiper-button-next"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="mt-8">
+          <div class="section-meet-our-agents position-relative">
+              <h1 class="section-title text-center pt-7 font-weight-bold fs-28"> نمایندگی</h1>
+              <div class="container-fluid">
+                  <div class="row mb-8">
+                      <div class="swiper-container agents">
+                          <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-4.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-1.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-4.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-1.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-1.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-4.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-1.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-1.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-1.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="card">
+                                          <div class="card-body p-0">
+                                              <img src="{% static 'img/profile/a-1.jpg' %}" alt="">
+                                              <div class="mat-card-content-agents p-4">
+                                                  <h4 class="font-weight-bold">مانوئل لوسیا</h4>
+                                                  <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                                  <p class="text-gray mt-3">
+                                                       متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                                                  <p class="mb-2 fs-14 text-gray">
+                                                      <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید خانه </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> lusia.m@housekey.com
+                                                  </p>
+                                                  <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                                      (224) 267-1346 </p>
+                                                  <div class="mat-divider"></div>
+                                                  <div class="mat-card-actions-agents">
+                                                      <p>
+                                                          <i class="zmdi zmdi-facebook-box"> </i>
+                                                          <i class="zmdi zmdi-twitter-box"></i>
+                                                          <i class="zmdi zmdi-linkedin-box"></i>
+                                                          <i class="zmdi zmdi-instagram"></i>
+                                                          <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                              مشاهده پروفایل </a>
+                                                      </p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- Add Pagination -->
+                          <div class="swiper-button-next btn-swiper-button-next"></div>
+                          <div class="swiper-button-prev btn-swiper-button-next"></div>
+                      </div>
+                  </div>
+                  <div class="text-center buttons">
+                      <a class="btn btn-primary btn-more-agents" href=""> نمایندگان ما </a>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="mt-7">
+          <div class="container-fluid">
+              <div class="item-clients">
+                  <div class="text-center">
+                      <h1 class="section-title text-center font-weight-bold fs-28 mb-3">مشتریان ما</h1>
+                      <p class="text-gray">متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است.</p>
+                  </div>
+                  <div class="swiper-container swiper-clients mt-6 mb-9">
+                      <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/best.png' %}" alt="تصویر">
+                          </div>
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/aloha.png' %}" alt="تصویر">
+                          </div>
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/congrats.png' %}" alt="تصویر">
+                          </div>
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/aloha.png' %}" alt="تصویر">
+                          </div>
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/king.png' %}" alt="تصویر">
+                          </div>
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/aloha.png' %}" alt="تصویر">
+                          </div>
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/retro.png' %}" alt="تصویر">
+                          </div>
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/aloha.png' %}" alt="تصویر">
+                          </div>
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/aloha.png' %}" alt="تصویر">
+                          </div>
+                          <div class="swiper-slide">
+                              <img src="{% static 'img/slider/aloha.png' %}" alt="تصویر">
+                          </div>
+                      </div>
+                      <!-- Add Pagination -->
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section>
+          <div class="container-fluid">
+              <div class="theme-container-contact-footer bg-primary">
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <div class="text-center pt-2 pb-2">
+                              <h2 class="fs-21 text-light font-weight-bold pt-3">به دنبال فروش خانه خود هستید؟</h2>
+                              <p class="mb-0 text-light-gray">لورم ایپسوم متن ساختگی با تولید سادگی</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="row">
+                              <div class="col-sm-7 col-lg-6">
+                                  <div class="pt-1 pb-1 pl-7 item-call">
+                                      <span class="fs-14 text-light pl-6 txt-column-contact">با ما تماس بگیرید</span>
+                                      <h2 class="fs-21 font-weight-bold text-light nowrap"><i class="zmdi zmdi-phone fs-50"></i>
+                                          (100) 123 456 7890</h2>
+                                  </div>
+                              </div>
+                              <div class="col-sm-5 col-lg-6">
+                                  <div class="text-right pr-6 pt-6 item-btn-call">
+                                      <a class="btn btn-secondary" href="">با ما در تماس باشید</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock %}

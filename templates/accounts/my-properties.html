@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <main id="main">
+      <section class="mt-4 mb-4">
+          <div class="container-fluid pl-0 pr-0">
+              <div class="item-account">
+                  <div class="row">
+                      <div class="col-xl-3  col-sm-6 col-lg-4 horizontal-account-sidenav" id="account-sidenav">
+                          <a class="close-card hide-xl-max"><i class="zmdi zmdi-close mr-3" id="close-card"></i></a>
+                          <div class="mat-card p-4">
+                              <div class="account-sidenav">
+                                  <div class="header-account-sidenav pb-3">
+                                      <i class="zmdi zmdi-account"></i>
+                                      <span class="text-muted pl-2 fs-25">حساب کاربری</span>
+                                  </div>
+                                  <div class="divider"></div>
+                                  <ul class="pt-4 p-2 pl-0">
+                                      <li class="p-3"><a href="{% url 'profile' user.pk %}" class="text-muted"> <i class="zmdi zmdi-account fs-25"></i> <span class="pl-2 fs-14">حساب کاربری</span> </a></li>
+                                      <li class="p-3 active-link"><a href="{% url 'my_properties' user.pk %}" class="text-muted"> <i class="zmdi zmdi-view-list fs-25"></i> <span class="pl-2 fs-14">املاک من</span> </a></li>
+                                      <li class="p-3"><a href="compare.html" class="text-muted"> <i class="zmdi zmdi-repeat fs-25"></i> <span class="pl-2 fs-14"> مقایسه</span> </a></li>
+                                      <li class="p-3"><a href="{% url 'submit_house' %}" class="text-muted"> <i class="zmdi zmdi-plus-circle fs-25"></i> <span class="pl-2 fs-14"> ثبت ملک</span> </a></li>
+                                      <li class="p-3"><a href="{% url 'logout' %}" class="text-muted"> <i class="zmdi zmdi-power fs-25"></i> <span class="pl-2 fs-14">خروج</span></a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-9 mb-3 hide-xl-max">
+                          <div class="mat-card p-5 d-flex">
+                              <div class="w-50">
+                                  <i class="zmdi zmdi-more-vert fs-24 pointer-event" id="cl-account-sidenav"></i>
+                              </div>
+                              <div class="w-50 text-right">
+                                  <h3 class="fs-17 mb-0 pt-1 fw-600 text-muted"> حساب من</h3>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-9 col-lg-8 col-sm-12">
+                          <div class="bg-drawer-backdrop hiden-xl"></div>
+                          <div class="mat-card p-4">
+                              <div class="row">
+                                  <div class="col-xl-12">
+                                  {% if houses %}
+                                      <div class="form-group">
+                                          <input type="text" class="form-control pt-5 pb-5" id="search_input_all" onkeyup="FilterkeyWord_all_table()" placeholder="جستجو ...">
+                                      </div>
+                                    <div class="table-responsive table-responsive-sm">
+                                        <table class="table text-muted" id="table-id">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col"> شناسه</th>
+                                                <th scope="col">تصویر</th>
+                                                <th scope="col"> عنوان</th>
+                                                <th scope="col"> منتشر شده</th>
+                                                <th scope="col"> بازدیدها</th>
+                                                <th scope="col"> اقدامات</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                    {% for house in houses %}
+                                                    <tr>
+                                                        <th scope="row">{{ house.id }}</th>
+                                                        <td>
+                                                            <img class="d-block column-image" src="{{ house.photo_main.url }}">
+                                                        </td>
+                                                        <td>{{ house.title }}</td>
+                                                        <td>{{ house.jpublish }}</td>
+                                                        <td>754</td>
+                                                        <td>
+                                                    <span>
+                                                        <a href="{% url 'edit' house.id %}"><i class="zmdi zmdi-edit text-primary fs-25 pointer-event"></i></a>
+                                                        <a href="{% url 'delete' house.id %}"<i class="zmdi zmdi-delete text-danger fs-25 pl-4 pointer-event"></i></a>
+                                                    </span>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+                                    {% if houses.has_other_pages %}
+                                      <div class="item-paginator">
+                                          <div class="row align-items-center pt-4">
+                                              <div class="col-xl-3 col-lg-4 col-md-4 offset-md-4 col-sm-6 col-12 offset-lg-2 offset-xl-5">
+                                                  <div class="paginator-page-size stylish float-right float-xs-left pb-xs-1">
+                                                      <span class="fs-13 text-muted mr-2">شرایط در هر صفحه:</span>
+                                                      <button class="page-size-select" id="btn-size-select">5</button>
+                                                      <select size="2" id="maxRows">
+                                                          <option value="5" selected="">5</option>
+                                                          <option value="10">10</option>
+                                                          <option value="20">20</option>
+                                                          <option value="100">100</option>
+                                                      </select>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12">
+                                                  <div class="paginator-range-actions">
+                                                      <div class="paginator-range-label text-muted fs-13">{{ houses.start_index }} - {{ houses.end_index }} از {{ count }}</div>
+                                                      <div class="ml-8">
+                                                        {% if houses.has_previous %}
+                                                          <a class="ti-control-skip-backward pl-3" href="?page=1"></a>
+                                                          <a class="ti-angle-left pl-3" href="?page={{ houses.previous_page_number }}"></a>
+                                                        {% endif %}
+                                                        {% if houses.has_next %}
+                                                          <a class="ti-angle-right pl-3" href="?page={{ houses.next_page_number }}"></a>
+                                                          <a class="ti-control-skip-forward pl-3" href="?page={{ p.num_pages }}"></a>
+                                                        {% endif %}
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                      {% endif %}
+                                    {% else %}
+                                        <div><h1 style="color:red">شما هنوز ملکی ثبت نکرده اید.</h1>
+                                        <p class="text-muted fs=18 ">جهت ثبت ملک خود بر روی دکمه <a href="{% url 'submit_house' %}" style="text-decoration:none; color:blue;">
+                                        ثبت ملک</a> کلیک کنید.</p>
+                                        </div>
+                                    {% endif %}
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock %}

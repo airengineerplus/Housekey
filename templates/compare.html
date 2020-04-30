@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>کلید خانه</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="css/style-rtl.css">
+    <link href="css/swiper.css" rel="stylesheet">
+    <link href="css/iziToast.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- Custom style CSS -->
+    <link rel='shortcut icon' type='image/x-icon' href='img/favicon.ico'/>
+</head>
+<body>
+    <header>
+        <div class="horizontal-Menu">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <hr class="w-85 mt-6 mb-2">
+                <ul class="vertical-menu-wrapper pl-0 w-85">
+                    <li><a class="active-link-sidenav" href="#">خانه</a></li>
+                    <li><a href="#">خصوصیات</a></li>
+                    <li>
+                        <a class="collapsed collapsed-sidenav" data-toggle="collapse" href="#collapseExample">
+                            صفحات
+                        </a>
+                        <div class="collapse pl-4" id="collapseExample">
+                            <a  href="pricing.html">قیمت گذاری</a>
+                            <a  href="compare.html"> مقایسه</a>
+                            <a  href="details.html">جزئیات</a>
+                            <a  href="register.html"> ثبت نام</a>
+                            <a  href="login.html">ورود</a>
+                            <a  href="404.html">404</a>
+                        </div>
+                    </li>
+                    <li><a href="#">تماس با ما</a></li>
+                    <li><a href="#">درباره ما</a></li>
+                </ul>
+                <div class="item-social-icon-sidenav">
+                    <a href="#"> <i class="zmdi zmdi-facebook-box"></i></a>
+                    <a href="#"> <i class="zmdi  zmdi-twitter-box"></i></a>
+                    <a href="#"> <i class="zmdi  zmdi-linkedin-box"></i></a>
+                    <a href="#"> <i class="zmdi zmdi-google-plus-box"></i></a>
+                </div>
+            </div>
+            <span class="mat-icon-toolbar-toolbar" onclick="openNav()"><i class="zmdi zmdi-menu"></i></span>
+        </div>
+        <div class="top-bar-menu">
+            <div class="container-fluid pl-0 pr-0">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-9">
+                        <div class="top-bar-left">
+                            <span class="mat-toolbar"> <i class="zmdi zmdi-phone p-1 fs-17"></i> (100) 123 456 7890</span>
+                            <span class="mat-toolbar"> <i class="zmdi zmdi-pin p-1 fs-17"></i> تهران - ونک - خیابان بهار</span>
+                            <span class=""> <i class="zmdi zmdi-email p-1 fs-17"></i> info@housekey.com</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 hiden-xl">
+                        <div class="item-social-icon pl-7">
+                            <a href="#"> <i class="zmdi zmdi-facebook-box mat-icon"></i></a>
+                            <a href="#"> <i class="zmdi  zmdi-twitter-box mat-icon"></i></a>
+                            <a href="#"> <i class="zmdi  zmdi-linkedin-box mat-icon"></i></a>
+                            <a href="#"> <i class="zmdi zmdi-google-plus-box mat-icon"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="top-bar-right">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   واحد پولی
+                                </button>
+                                <div class="dropdown-menu animated zoomIn" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item text-gray fs-13" href="#">دلار آمریکا</a>
+                                    <a class="dropdown-item text-gray fs-13" href="#">یورو</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img class="img-flag" src="img/flag/united-kingdom.png" alt="" title="عنوان"> <span class="hiden-xl">انگلیسی</span>
+                                </button>
+                                <div class="dropdown-menu animated zoomIn" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item text-gray fs-13" href="#">
+                                        <img class="img-flag" src="img/flag/united-kingdom.png" alt="" title="عنوان">
+                                        انگلیسی
+                                    </a>
+                                    <a class="dropdown-item text-gray fs-13" href="#">
+                                        <img class="img-flag" src="img/flag/iran.png" alt="" title="عنوان">
+                                        فارسی
+                                    </a>
+                                    <a class="dropdown-item text-gray fs-13" href="#">
+                                        <img class="img-flag" src="img/flag/162-germany.png" alt="" title="عنوان">
+                                        آلمانی
+                                    </a>
+                                    <a class="dropdown-item text-gray fs-13" href="#">
+                                        <img class="img-flag" src="img/flag/013-italy.png" alt="" title="عنوان">
+                                        ایتالیا</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="zmdi zmdi-account fs-17"></i>
+                                    <span class="hiden-xl">حساب کاربری</span>
+                                </button>
+                                <div class="dropdown-menu animated zoomIn panel-user-info" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item item-user-menu pt-2" href="#">
+                                        <i class="zmdi zmdi-account fs-40"></i>
+                                        <span class="text-gray pl-2">نام کاربری</span>
+                                    </a>
+                                    <a class="dropdown-item" href="submit-property.html">
+                                        <i class="zmdi zmdi-plus-circle fs-17"></i>
+                                        <span class="pl-2"> ثبت ملک </span>
+                                    </a>
+                                    <a class="dropdown-item" href="my-properties.html">
+                                        <i class="zmdi zmdi-home fs-17"></i>
+                                        <span class="pl-2"> املاک من </span>
+                                    </a>
+                                    <a class="dropdown-item">
+                                        <i class="zmdi zmdi-favorite-outline fs-17"></i>
+                                        <span class="pl-2">موارد دلخواه</span>
+                                    </a>
+                                    <a class="dropdown-item" href="compare.html">
+                                        <i class="zmdi zmdi-compare fs-17"></i>
+                                        <span class="pl-2">مقایسه</span>
+                                    </a>
+                                    <a class="dropdown-item" href="profile.html">
+                                        <i class="zmdi zmdi-edit fs-17"></i>
+                                        <span class="pl-2"> ویرایش پروفایل</span>
+                                    </a>
+                                    <a class="dropdown-item border-top" href="profile.html">
+                                        <i class="zmdi zmdi-power fs-17"></i>
+                                        <span class="pl-2">خروج</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sticky-wrapper-menu d-flex bg-white">
+            <div class="container-fluid pr-0 pl-0">
+                <div class="row content-center">
+                    <div class="col-lg-2 col-6 col-sm-6">
+                        <div class="main-logo">
+                            <a href="index.html">
+                                <img src="img/logo.png" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 hiden-lg">
+                        <nav class="horizontalMenu">
+                            <ul class="horizontalMenu-list">
+                                <li><a href="index.html" class="active">خانه</a></li>
+                                <li><a href="properties.html">خصوصیات</a></li>
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="dropdown-toggle bg-transparent border-0 line-height-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            صفحات
+                                        </button>
+                                        <div class="dropdown-menu animated zoomIn" aria-labelledby="mat-menu-panel">
+                                            <a class="dropdown-item fs-14" href="pricing.html">قیمت گذاری</a>
+                                            <a class="dropdown-item fs-14" href="compare.html"> مقایسه</a>
+                                            <a class="dropdown-item fs-14" href="edit.html"> ویرایش ملک</a>
+                                            <a class="dropdown-item fs-14" href="details.html">جزئیات</a>
+                                            <a class="dropdown-item fs-14" href="register.html"> ثبت نام</a>
+                                            <a class="dropdown-item fs-14" href="login.html">ورود</a>
+                                            <a class="dropdown-item fs-14" href="404.html">404</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="contact.html">تماس با ما</a></li>
+                                <li><a href="about.html" class="">درباره ما</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 col-6 col-sm-6">
+                        <div class="itam-toolbar">
+                            <a href="" class="hiden-xl mr-3"> <i class="zmdi zmdi-favorite-outline text-dark  fs-22"></i> </a>
+                            <a href="" class="hiden-xl ml-3"> <i class="zmdi zmdi-repeat text-dark fs-22"></i> </a>
+                            <a class="btn btn-primary ml-4" href="submit-property.html"> <span class="hiden-sm">ثبت ملک</span>  </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<main id="main">
+    <section>
+        <div class="container-fluid pr-0 pl-0">
+            <div class="row mt-4">
+                <div class="col-xl-12">
+                    <div class="mat-card p-4">
+                        <div class="row">
+                            <div class="col-xl-5 col-5 align-self-end">
+                                <h3 class="fs-16 fw-600">مقایسه کنید: 1</h3>
+                            </div>
+                            <div class="col-xl-2 col-2">
+                                <div class="swiper-button-compare-item d-none">
+                                    <div class="swiper-button-prev btn-swiper-button-next"></div>
+                                    <div class="swiper-button-next btn-swiper-button-next"></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-5 text-right align-self-end">
+                                <a class="btn btn-danger mini-btn-clear pr-6 pl-6" href=""> <i class="zmdi zmdi-close-circle hiden-min-sm"></i> <span class="hiden-sm">  همه را پاک کن</span> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="compare-item mt-5 mb-5">
+                <div class="row">
+                    <div class="swiper-container compare-item pb-2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide col-xl-3 col-lg-4 col-sm-6 col-12">
+                                <div class="mat-card">
+                                    <a href="#" class="remove-compare-item"><i class="zmdi zmdi-close"></i></a>
+                                    <img src="img/apartment/img2.jpg" class="img-fluid rounded-top" alt="">
+                                    <div class="mat-card-content p-4">
+                                        <a href="#" class="text-dark"><h3 class="font-weight-bold text-center">فروش خانه ویلایی</h3></a>
+                                        <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-21"></i>تهران، بلوار فردوس، شقایق</p>
+                                        <button class="btn btn-primary w-100 br-50 border-0 shadow-none">2،550،000 تومان</button>
+                                        <div class="item-details mt-4">
+                                            <div class="details-row">
+                                                <span>نوع ملک: </span>
+                                                <span>خانه</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>وضعیت ملک: </span>
+                                                <span>برای فروش</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>شهر: </span>
+                                                <span>سیاتل</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>کد پستی: </span>
+                                                <span>98104</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>محله :</span>
+                                                <span>نیاوران</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>اتاق های خواب: </span>
+                                                <span>2</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>امکانات: </span>
+                                                <span>تهویه مطبوع کباب مایکروویو خشک کن مایکروویو کابل WiFi تلویزیون سونا</span>
+                                            </div>
+                                            <div class="details-row d-block border-bottom-0">
+                                                <div class="text-center pt-2 pb-3"><span class="text-dark">توضیحات</span></div>
+                                                <span class="text-gray"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز</span>
+                                            </div>
+                                            <div class="text-center pt-4 pb-2">
+                                                <button class="btn btn-primary border-0 min-w-50">اطلاعات بیشتر</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide col-xl-3 col-lg-4 col-sm-6 col-12">
+                                <div class="mat-card">
+                                    <a href="#" class="remove-compare-item"><i class="zmdi zmdi-close"></i></a>
+                                    <img src="img/apartment/img2.jpg" class="img-fluid rounded-top" alt="">
+                                    <div class="mat-card-content p-4">
+                                        <a href="#" class="text-dark"><h3 class="font-weight-bold text-center">فروش خانه ویلایی</h3></a>
+                                        <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-21"></i>تهران، بلوار فردوس، شقایق</p>
+                                        <button class="btn btn-primary w-100 br-50 border-0 shadow-none">2،550،000 تومان</button>
+                                        <div class="item-details mt-4">
+                                            <div class="details-row">
+                                                <span>نوع ملک: </span>
+                                                <span>خانه</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>وضعیت ملک: </span>
+                                                <span>برای فروش</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>شهر: </span>
+                                                <span>سیاتل</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>کد پستی: </span>
+                                                <span>98104</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>محله :</span>
+                                                <span>نیاوران</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>اتاق های خواب: </span>
+                                                <span>2</span>
+                                            </div>
+                                            <div class="details-row">
+                                                <span>امکانات: </span>
+                                                <span>تهویه مطبوع کباب مایکروویو خشک کن مایکروویو کابل WiFi تلویزیون سونا</span>
+                                            </div>
+                                            <div class="details-row d-block border-bottom-0">
+                                                <div class="text-center pt-2 pb-3"><span class="text-dark">توضیحات</span></div>
+                                                <span class="text-gray"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز</span>
+                                            </div>
+                                            <div class="text-center pt-4 pb-2">
+                                                <button class="btn btn-primary border-0 min-w-50">اطلاعات بیشتر</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="container-fluid">
+        <div class="header-item-footer">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-5">
+                    <div class="item-Subscribe mt-6 mb-6 pl-3">
+                        <h2 class="uppercase fs-24">اشتراک خبرنامه</h2>
+                        <p class="desc mb-1 fs-15 font-weight-bold">با آخرین اخبار و خواص ما به روز باشید</p>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-7 col-md-6 col-lg-4 col-xl-4 m-sm-auto">
+                    <div class="mat-form-field-wrapper mt-6 mb-6">
+                        <input class="mat-form-field" type="text" placeholder="آدرس ایمیل ...">
+                        <button class="subscribe-btn btn-primary" type="submit">
+                            <span class="mat-button-wrapper">مشترک</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-footer">
+            <div class="row mb-6">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="logo pt-5">
+                        <img src="img/logo2.png" class="img-fluid" alt="">
+                    </div>
+                    <p class="mt-5 mb-3 desc mt-3"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز
+                    </p>
+                    <p class="mb-2 fs-14 "><i class="zmdi zmdi-pin mr-1 fs-25 text-primary"></i>تهران - ونک - خیابان نیلوفر</p>
+                    <p class="mb-2 fs-14 "><i class="zmdi zmdi-phone mr-1 fs-25 text-primary"></i> (100) 123 456 7890
+                    </p>
+                    <p class="mb-2 fs-14 "><i class="zmdi zmdi-email mr-1 fs-25 text-primary"></i> contact@housekey.com
+                    </p>
+                    <p class="mb-2 fs-14 "><i class="zmdi zmdi-time mr-1 fs-25 text-primary"></i> دوشنبه - سه شنبه / 9 صبح تا 8 شب</p>
+                    <div class="mat-card-actions-footer mt-5">
+                        <p>
+                            <i class="zmdi zmdi-facebook-box"> </i>
+                            <i class="zmdi zmdi-twitter-box"></i>
+                            <i class="zmdi zmdi-linkedin-box"></i>
+                            <i class="zmdi zmdi-instagram"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="mt-6">
+                        <h2 class="uppercase fs-22 font-weight-bold">بازخورد</h2>
+                        <p class="desc fs-13">ما نظرات شما را در مورد همه چیز می خواهیم</p>
+                        <form class="mt-4 custom-form-footer">
+                            <div class="effect-label input-mail-footer pb-5">
+                                <input class="mat-form-field input-mail-footer text-light" type="text">
+                                <label> پست الکترونیک </label>
+                            </div>
+                            <div class="effect-label">
+                                <input class="mat-form-field input-textarea-footer text-light" type="text">
+                                <label> پیام برای ما </label>
+                            </div>
+                            <div class="w-100 text-center mt-4">
+                                <button class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="item-google-map-container mt-6">
+                        <h2 class="uppercase mb-3">نشانی</h2>
+                        <p class="mt-5 mb-3 desc mt-3"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-item">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <p class="desc fs-13 pt-3">کپی رایت © 2019 همه حقوق محفوظ است</p>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="text-right fs-12 pr-6 text-light-gray text-xs-left">
+                        <p class="pt-3">طراحی شده توسط amir.h
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="back-to-top"><i class="ti-arrow-up"></i></div>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/iziToast.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

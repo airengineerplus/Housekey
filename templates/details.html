@@ -1,0 +1,943 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <main id="main">
+      <section class="mt-4 position-relative overflow-hidden">
+          <div class="bg-drawer-backdrop hide"></div>
+          <div class="container-fluid pr-0 pl-0">
+              <div class="row">
+                  <div class="col-xl-9 col-lg-8">
+                      <div class="mat-card pt-4">
+                          <div class="row">
+                              <div class="col-xl-9 col-lg-9 col-md-5 col-sm-6 pl-4 text-center-xs">
+                                  <h2 class="fs-22  font-weight-bold"> {{house.title}} </h2>
+                                  <p class="mb-5 fs-12 mt-1 text-gray "><i class="zmdi zmdi-pin mr-1 fs-21"></i>{{house.state}} , {{house.address}}</p>
+                              </div>
+                              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
+                                  <div class="text-center pt-2 pt-xs-0">
+                                      <h6 class="font-weight-bold mb-1 text-primary  fs-21 price">{{house.price}} تومان
+                                      </h6>
+                                      <span class="item-ratings">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                  </div>
+                              </div>
+                              <div class="col-md-3 col-sm-2 pr-xs-1 text-right text-center-xs pt-xs-0 pb-xs-1 pt-4 pr-7 fs-25 hide-xl-max">
+                                  <div class="align-self-center"><a id="cl-Side-card"><i class="zmdi zmdi-more-vert pointer-event"></i></a></div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mat-card mt-4">
+                          <div class="main-carousel-details p-4">
+                              <div class="swiper-container gallery-top">
+                                  <div class="item-card-control-icons">
+                                      <a class="toastr">
+                                          <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                      </a>
+                                      <a id="popup-trigger1">
+                                          <i class="zmdi zmdi-repeat"></i>
+                                      </a>
+                                  </div>
+                                  <div class="popup-compare-container hide">
+                                      <div class="toolbar-house-row">
+                                          <a class="btn btn-primary float-left text-light">مقایسه کنید - 1</a>
+                                          <a class="cd-popup-close img-replace"></a>
+                                      </div>
+                                      <div class="popup-list-item-content mt-3">
+                                          <div class="flex-column">
+                                              <h3 class="toolbar-list-text">خانه با استخر</h3>
+                                              <span class="text-gray fs-12 fs-10-sm">   <i class="zmdi zmdi-pin mr-1 fs-15"></i> تهران، بلوار فردوس، شقایق</span>
+                                          </div>
+                                          <div class="mt-4">
+                                              <span class="text-primary fs-16 pl-7">450000 تومان</span>
+                                              <a class="float-right remove-list-house pl-6"><i class="zmdi zmdi-close"></i></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="swiper-wrapper">
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                  </div>
+                                  <!-- Add Arrows -->
+                                  <div class="swiper-button-next btn-swiper-button-next"></div>
+                                  <div class="swiper-button-prev btn-swiper-button-next"></div>
+                              </div>
+                              <div class="swiper-container gallery-thumbs">
+                                  <div class="swiper-wrapper">
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                      <div class="swiper-slide">
+                                          <img src="{{ house.photo_main.url }}" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mat-card mt-4 p-4">
+                          <div class="mat-card-header content-center pt-2">
+                              <h3 class="fs-21 text-dark">جزئیات</h3>
+                          </div>
+                          <div class="row details pt-4">
+                              <div class="col-xl-6 col-lg-5 col-sm-5">
+                                  <div class="item-details">
+                                      <span>نوع ملک: </span>
+                                      <span>{{ house_type }}</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>شهر: </span>
+                                      <span>{{house.city}}</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>محله: </span>
+                                      <span>آپارتمان</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>گاراژها: </span>
+                                      <span>{{house.garage}}</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>سال ساخت: </span>
+                                      <span>{{ house.year_of_built }}</span>
+                                  </div>
+                              </div>
+                              <div class="col-xl-6 col-lg-7 col-sm-5">
+                                  <div class="item-details">
+                                      <span>وضعیت ملک: </span>
+                                      <span>برای فروش</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>کد پستی: </span>
+                                      <span>-----------</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>خیابان:  </span>
+                                      <span>{{ house.address }}</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>حمام: </span>
+                                      <span>{{ house.bathrooms }}</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>متراژ: </span>
+                                      <span>{{ house.area }}  متر</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mat-card mt-4 p-4">
+                          <div class="mat-card-header content-center pt-2">
+                              <h3 class="fs-21 text-dark">امکانات</h3>
+                          </div>
+                          <div class="row item-features pt-4">
+                              <div class="col-xl-4 col-lg-4 col-sm-4">
+                                  <p> <i class="ti-check"></i> تهویه هوا </p>
+                                  <p> <i class="ti-check"></i> پارکینگ </p>
+                                  <p> <i class="ti-check"></i> استخر</p>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-sm-4">
+                                  <p> <i class="ti-check"></i> باربیکیو </p>
+                                  <p> <i class="ti-check"></i> یخچال </p>
+                                  <p> <i class="ti-check"></i> تهویه هوا </p>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-sm-4">
+                                  <p> <i class="ti-check"></i> خشک کن </p>
+                                  <p> <i class="ti-check"></i> بخاری </p>
+                                  <p> <i class="ti-check"></i> وای فای </p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mat-card mt-4 p-4">
+                          <div class="mat-card-header content-center pt-2">
+                              <h3 class="fs-21 text-dark">ویژگی های اضافی</h3>
+                          </div>
+                          <div class="row details pt-4">
+                              <div class="col-xl-6 col-lg-6 col-sm-6">
+                                  <div class="item-details">
+                                      <span>گرما: </span>
+                                      <span>گاز طبیعی</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>طبقه: </span>
+                                      <span>اول </span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>درب برقی:</span>
+                                      <span> دارد</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>تختخواب: </span>
+                                      <span>1</span>
+                                  </div>
+                              </div>
+                              <div class="col-xl-6 col-lg-6 col-sm-6">
+                                  <div class="item-details">
+                                      <span>سقف: </span>
+                                      <span>ترکیب / زونا</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>آب: </span>
+                                      <span>منطقه / عمومی</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>پنجره: </span>
+                                      <span>دوجداره</span>
+                                  </div>
+                                  <div class="item-details">
+                                      <span>اتاق کودک: </span>
+                                      <span>2</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mat-card mt-4 p-4">
+                          <div class="mat-card-header content-center pt-2">
+                              <h3 class="fs-21 text-dark">توضیحات</h3>
+                          </div>
+                          <div class="row direction pt-4">
+                              <div class="col-xl-12">
+                                  <p class="text-gray"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز
+                                  </p>
+                                  <p class="text-gray"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mat-card mt-4 p-4">
+                          <div class="mat-card-header content-center pt-4 pb-2">
+                              <h3 class="fs-21 text-dark">نقشه ساختمان</h3>
+                          </div>
+                          <div id="accordion" class="expansion-panel">
+                              <div class="accordion">
+                                  <div class="accordion-header collapsed expansion-panel-header" data-toggle="collapse" data-target="#panel-body-1">
+                                      <div class="row">
+                                          <div class="col-xl-6 col-lg-3 col-sm-3 col-6">   <h4 class="fs-15 pt-4">طبقه اول</h4></div>
+                                          <div class="col-xl-6 col-lg-9 col-sm-9 col-6 text-right expansion-panel-header-title align-self-center">
+                                              <span class="hiden-sm">محل زندگی: 1180 متراژ </span>
+                                              <span class="hiden-sm">اتاق: 3 </span>
+                                              <span class="hiden-sm">حمام: 1</span>
+                                              <span class="float-right"><i class="ti-angle-down pointer-event font-weight-bold fs-14 text-dark"></i></span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="accordion-body collapse expansion-panel-body" id="panel-body-1" data-parent="#accordion">
+                                      <div class="text-center">
+                                          <img src="{% static 'img/apartment/plan-1.jpg' %}" alt="" class="img-fluid">
+                                      </div>
+                                      <p class="text-center text-muted pb-6 p-3"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز
+                                      </p>
+                                  </div>
+                                  <div class="accordion-header collapsed expansion-panel-header " data-toggle="collapse" data-target="#panel-body-2">
+                                      <div class="row">
+                                          <div class="col-xl-6 col-lg-3 col-sm-3 col-6">   <h4 class="fs-15 pt-4">طبقه دوم</h4></div>
+                                          <div class="col-xl-6 col-lg-9 col-sm-9 col-6 text-right expansion-panel-header-title align-self-center">
+                                              <span class="hiden-sm">محل زندگی: 1180 متراژ </span>
+                                              <span class="hiden-sm">اتاق: 3 </span>
+                                              <span class="hiden-sm">حمام: 1</span>
+                                              <span class="float-right"><i class="ti-angle-down pointer-event font-weight-bold fs-14 text-dark"></i></span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="accordion-body collapse expansion-panel-body" id="panel-body-2" data-parent="#accordion">
+                                      <div class="text-center">
+                                          <img src="{% static 'img/apartment/plan-1.jpg' %}" alt="" class="img-fluid">
+                                      </div>
+                                      <p class="text-center text-muted pb-6 p-3"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mat-card mt-4 p-4">
+                          <div class="item-reviews">
+                              <div class="mat-card-header content-center pt-4 pb-2">
+                                  <h3 class="fs-21 text-dark">پاسخ</h3>
+                              </div>
+                              <div class="divider"></div>
+                              <div class="item-content-reviews pt-5">
+                                  <div class="row item-content">
+                                      <div class="col-xl-2 col-lg-3 col-sm-3 col-5">
+                                          <img src="{% static 'img/profile/avatar-1.png' %}" alt="" class="img-avatar">
+                                      </div>
+                                      <div class="col-xl-10 col-lg-9 col-sm-9 pl-xl-0 pl-lg-0">
+                                          <div class="item-text-reviews">
+                                              <p class="m-0 p-0">نام کاربری</p>
+                                              <p><small class="text-muted"> ۱۳ بهمن ۱۳۹۸ ساعت 7:09 بعد از ظهر</small></p>
+                                              <p class="text-gray"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row item-content">
+                                      <div class="col-xl-2 col-lg-3 col-sm-3 col-5">
+                                          <img src="{% static 'img/profile/avatar-1.png' %}" alt="" class="img-avatar">
+                                      </div>
+                                      <div class="col-xl-10 col-lg-9 col-sm-9 pl-xl-0 pl-lg-0">
+                                          <div class="item-text-reviews">
+                                              <p class="m-0 p-0">نام کاربری</p>
+                                              <p class="text-"><small class="text-muted"> ۱۳ بهمن ۱۳۹۸ ساعت 7:09 بعد از ظهر</small></p>
+                                              <p class="text-gray"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="mat-card-header pl-5 pt-4">
+                                  <h3 class="fs-18 text-dark font-weight-bold">نظر دهید</h3>
+                              </div>
+                              <div class="divider"></div>
+                              <p class="text-muted  pl-5 pt-4">آدرس ایمیل شما منتشر نخواهد شد. قسمت های مورد نیاز علامت گذاری شده است *</p>
+                              <h3 class="fs-17 text-gray font-weight-bold pt-3 pl-5">امتیاز شما:</h3>
+                              <div class="comment-form">
+                                  <form action="" class="pl-5 pr-5 pt-4">
+                                      <div class="effect-label">
+                                          <input class="mat-form-field input-textarea-footer" type="text">
+                                          <label class="field-label">  متن پیام </label>
+                                      </div>
+                                      <div class="row pt-6">
+                                          <div class="col-xl-6 col-lg-6 col-sm-6 pb-6">
+                                              <div class="effect-label">
+                                                  <input class="mat-form-field input-mail-footer" type="text">
+                                                  <label class="field-label"> نام کاربری  </label>
+                                              </div>
+                                          </div>
+                                          <div class="col-xl-6 col-lg-6 col-sm-6">
+                                              <div class="effect-label">
+                                                  <input class="mat-form-field input-mail-footer" type="text">
+                                                  <label class="field-label"> ایمیل  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row pb-6">
+                                          <div class="col-xl-12 text-center pt-4">
+                                              <a href="#" class="btn btn-primary"> ارسال</a>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xl-3  col-sm-6 col-lg-4 pl-0 side-card-details" id="Side-card">
+                      <a class="close-card hide-xl-max"><i class="zmdi zmdi-close"></i></a>
+                      <div class="mat-card">
+                          <div class="widget p-3">
+                              <div class="mat-card">
+                                  <img src="{% static 'img/profile/a-4.jpg' %}" alt="" class="img-fluid br-img">
+                                  <div class="mat-card-content-agents p-4">
+                                      <h4 class="font-weight-bold">{{ user.username }}</h4>
+                                      <span class="item-ratings text-rating">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                  </span>
+                                      <p class="text-gray mt-3"></p>
+                                      <p class="mb-2 fs-14 text-gray">
+                                          <i class="zmdi zmdi-city-alt mr-1 fs-25 text-primary"></i> کلید اصلی </p>
+                                      <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-email mr-1 fs-24 text-primary"></i> {{ user.email }}
+                                      </p>
+                                      <p class="mb-2 fs-14 text-gray"><i class="zmdi zmdi-phone fs-24 text-primary"></i>
+                                      09173174821 </p>
+                                      <div class="mat-divider"></div>
+                                      <div class="mat-card-actions-agents">
+                                          <p>
+                                              <i class="zmdi zmdi-facebook-box"> </i>
+                                              <i class="zmdi zmdi-twitter-box"></i>
+                                              <i class="zmdi zmdi-linkedin-box"></i>
+                                              <i class="zmdi zmdi-instagram"></i>
+                                              <a class="btn text-primary float-right line-height-0 mat-button" href="">
+                                                  مشاهده پروفایل </a>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="widget overflow-hidden mt-5">
+                              <h3 class="widget-title bg-primary text-light fs-16 pl-4">پاسخ به لیست</h3>
+                              <form class="pl-3 pr-3">
+                                  <p class="text-gray pl-3 pr-2 fs-14">علاقه مند به اجاره یا خرید این ملک هستید؟ سپس برای ما ایمیل بفرستید.</p>
+                                  <div class="effect-label mb-5">
+                                      <input class="mat-form-field input-mail-footer" type="number">
+                                      <label class="field-label"> ارزش اصلی </label>
+                                  </div>
+                                  <div class="effect-label mb-5">
+                                      <input class="mat-form-field input-mail-footer" type="number">
+                                      <label class="field-label"> پیش پرداخت </label>
+                                  </div>
+                                  <div class="effect-label mb-5">
+                                      <input class="mat-form-field input-mail-footer" type="number">
+                                      <label class="field-label"> نرخ بهره </label>
+                                  </div>
+                                  <div class="effect-label mb-5">
+                                      <input class="mat-form-field input-mail-footer" type="number">
+                                      <label class="field-label"> دوره</label>
+                                  </div>
+                                  <div class="text-center">
+                                      <a href="" class="btn button-accent">محاسبه وام</a>
+                                  </div>
+                              </form>
+                          </div>
+                          <div class="widget overflow-hidden mt-5">
+                              <h3 class="widget-title bg-primary text-light fs-16 pl-4">پاسخ به لیست</h3>
+                          </div>
+                          <div class="widget p-3">
+                              <div class="item-resulte mat-card">
+                                  <div class="house_img">
+                                      <div class="tag-text">
+                                          <span class="property-status-label label-green">برای فروش </span>
+                                      </div>
+                                      <div class="popup-compare-container hide">
+                                          <div class="toolbar-house-row">
+                                              <a class="btn btn-primary float-left text-light">مقایسه کنید - 1</a>
+                                              <a class="cd-popup-close img-replace"></a>
+                                          </div>
+                                          <div class="popup-list-item-content mt-3">
+                                              <div class="flex-column">
+                                                  <h3 class="toolbar-list-text">خانه با استخر</h3>
+                                                  <span class="text-gray fs-12 fs-10-sm">   <i class="zmdi zmdi-pin mr-1 fs-15"></i> تهران، بلوار فردوس، شقایق</span>
+                                              </div>
+                                              <div class="mt-4">
+                                                  <span class="text-primary fs-16 pl-7">450000 تومان</span>
+                                                  <a class="float-right remove-list-house pl-6"><i class="zmdi zmdi-close"></i></a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="slider-img-wrapper-result">
+                                          <div class="swiper-container swiper1">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a id="popup-trigger1">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium%20(1).jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="house_info p-4">
+                                      <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                      <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>تهران، بلوار فردوس، شقایق</p>
+                                      <h6 class="font-weight-bold mb-3 text-primary mb-5 price">450000 تومان
+                                      <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                      </h6>
+                                      <div class="pr_desc">
+                                          <p class="text-gray"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز</p>
+                                      </div>
+                                      <div class="house_action_box">
+                                          <div class="item-features mt-3">
+                                              <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                  <span class="float-right">350 متر</span></p>
+                                              <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                  <span class="float-right">1</span></p>
+                                              <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                  <span class="float-right">2</span></p>
+                                              <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                  <span class="float-right">1</span></p>
+                                          </div>
+                                          <div class="item-footer-card mt-6">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i>۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="item-resulte mat-card mt-3">
+                                  <div class="house_img">
+                                      <div class="tag-text">
+                                          <span class="property-status-label label-green">برای فروش </span>
+                                      </div>
+                                      <div class="popup-compare-container hide">
+                                          <div class="toolbar-house-row">
+                                              <a class="btn btn-primary float-left text-light">مقایسه کنید - 1</a>
+                                              <a class="cd-popup-close img-replace"></a>
+                                          </div>
+                                          <div class="popup-list-item-content mt-3">
+                                              <div class="flex-column">
+                                                  <h3 class="toolbar-list-text">خانه با استخر</h3>
+                                                  <span class="text-gray fs-12 fs-10-sm">   <i class="zmdi zmdi-pin mr-1 fs-15"></i> تهران، بلوار فردوس، شقایق</span>
+                                              </div>
+                                              <div class="mt-4">
+                                                  <span class="text-primary fs-16 pl-7">450000 تومان</span>
+                                                  <a class="float-right remove-list-house pl-6"><i class="zmdi zmdi-close"></i></a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="slider-img-wrapper-result">
+                                          <div class="swiper-container swiper1">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a id="popup-trigger2">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium%20(1).jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="house_info p-4">
+                                      <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                      <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>تهران، بلوار فردوس، شقایق</p>
+                                      <h6 class="font-weight-bold mb-3 text-primary mb-5 price">450000 تومان
+                                      <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                      </h6>
+                                      <div class="pr_desc">
+                                          <p class="text-gray"> متنی ساختگی است که توسط سادگی غیرقابل توضیح صنعت چاپ و توسط طراحان گرافیک تولید شده است. چاپگر و متون بلکه روزنامه و مجله در ستون و ردیف در صورت نیاز</p>
+                                      </div>
+                                      <div class="house_action_box">
+                                          <div class="item-features mt-3">
+                                              <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                  <span class="float-right">350 متر</span></p>
+                                              <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                  <span class="float-right">1</span></p>
+                                              <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                  <span class="float-right">2</span></p>
+                                              <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                  <span class="float-right">1</span></p>
+                                          </div>
+                                          <div class="item-footer-card mt-6">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i>۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="mt-4">
+          <div class="item-featured-properties">
+              <h1 class="section-title text-center pt-7 font-weight-bold fs-28"> آیتم های مرتبط</h1>
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="swiper-container featured-properties">
+                          <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>تهران، بلوار فردوس، شقایق</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">450000 تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">350 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-6">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i>۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>تهران، بلوار فردوس، شقایق</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">450000 تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">350 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-6">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i>۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>تهران، بلوار فردوس، شقایق</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">450000 تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">350 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-6">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i>۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>تهران، بلوار فردوس، شقایق</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">450000 تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">350 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-6">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i>۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide">
+                                  <div class="col-xl-12 mb-3">
+                                      <div class="item-resulte mat-card">
+                                          <div class="tag-text">
+                                              <span class="property-status-label label-green">برای فروش </span>
+                                          </div>
+                                          <div class="swiper-container swiper-img-featured">
+                                              <div class="item-card-control-icons">
+                                                  <a class="toastr">
+                                                      <i class="zmdi zmdi-favorite-outline ml-1"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <i class="zmdi zmdi-repeat"></i>
+                                                  </a>
+                                              </div>
+                                              <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                                  <div class="swiper-slide">
+                                                      <img src="{% static 'img/apartment/2-medium.jpg' %}" alt="" class="swiper-lazy">
+                                                      <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                  </div>
+                                              </div>
+                                              <!-- Add Pagination -->
+                                              <div class="swiper-pagination1"></div>
+                                              <div class="swiper-button-next swiper-button-white"></div>
+                                              <div class="swiper-button-prev swiper-button-white"></div>
+                                          </div>
+                                          <div class="house_info p-4">
+                                              <a href="#" class="text-dark"><h5 class="font-weight-bold title-card-info">فروش خانه ویلایی</h5></a>
+                                              <p class="mb-5 fs-12 mt-3 text-gray"><i class="zmdi zmdi-pin mr-1 fs-15"></i>تهران، بلوار فردوس، شقایق</p>
+                                              <h6 class="font-weight-bold mb-3 text-primary mb-5 price">450000 تومان
+                                              <span class="item-ratings float-right">
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                            <i class="zmdi zmdi-star"></i>
+                                        </span>
+                                              </h6>
+                                              <div class="house_action_box">
+                                                  <div class="item-features mt-3">
+                                                      <p class="text-gray border-line-item-features"><span class="Property-item">متراژ</span>
+                                                          <span class="float-right">350 متر</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">اتاق خواب </span>
+                                                          <span class="float-right">1</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">حمام </span>
+                                                          <span class="float-right">2</span></p>
+                                                      <p class="text-gray  border-line-item-features"><span class="Property-item">گاراژ </span>
+                                                          <span class="float-right">1</span></p>
+                                                  </div>
+                                                  <div class="item-footer-card mt-6">
+                              <span class="fs-13 text-gray line-height-3">
+                                            <i class="zmdi zmdi-calendar-note fs-16"></i>۱۳ بهمن ۱۳۹۸
+                                               <a href="#" class="btn bg-transparent btn-details float-right">جزئیات</a>
+                                        </span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- Add Pagination -->
+                          <div class="swiper-button-next featured-properties  btn-swiper-button-next"></div>
+                          <div class="swiper-button-prev featured-properties  btn-swiper-button-next"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section class="mt-7">
+          <div class="container-fluid">
+              <div class="theme-container-contact-footer bg-primary">
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <div class="text-center pt-2 pb-2">
+                              <h2 class="fs-21 text-light font-weight-bold pt-3">آیا می خواهید خانه خود را بفروشید؟</h2>
+                              <p class="mb-0 text-light-gray">Lorem ipsum dolor sit، Consipiter کلاس تخفیف می یابد.</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="row">
+                              <div class="col-sm-7 col-lg-6">
+                                  <div class="pt-1 pb-1 pl-7 item-call">
+                                      <span class="fs-14 text-light pl-6 txt-column-contact">همین حالا با ما تماس بگیرید</span>
+                                      <h2 class="fs-21 font-weight-bold text-light nowrap"><i class="zmdi zmdi-phone fs-50"></i>
+                                          (+100) 123 456 7890</h2>
+                                  </div>
+                              </div>
+                              <div class="col-sm-5 col-lg-6">
+                                  <div class="text-right pr-6 pt-6 item-btn-call">
+                                      <a class="btn btn-secondary" href="">با ما در تماس باشید</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock %}

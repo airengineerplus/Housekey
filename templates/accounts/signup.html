@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main id="main">
+   <section>
+      <div class="container-fluid">
+          <div class="row item-login-form mt-6 mb-5">
+              <div class="mat-card content-center col-xl-5">
+                  <h1 class="fs-25 fw-600 pt-6">ثبت نام</h1>
+                  <div class="pt-5">
+                      <a href="{% url 'login' %}"><span class="mat-button-wrapper text-crimson">  قبلا ثبت نام کرده اید؟ ورود</span></a>
+                  </div>
+                  <!-- Alerts -->
+                  {% include '_alerts.html' %}
+                  <form action="{% url 'signup' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="effect-label mt-6 mb-5">
+                        <input class="mat-form-field input-mail-footer" name="first_name" type="text" required>
+                        <label for="first_name" class="field-label"> نام </label>
+                    </div>
+                    <div class="effect-label mt-6 mb-5">
+                        <input class="mat-form-field input-mail-footer" name="last_name" type="text" required>
+                        <label  for="last_name" class="field-label">  نام خانوادگی</label>
+                    </div>
+                    <div class="effect-label mt-6 mb-5">
+                        <input class="mat-form-field input-mail-footer" name="username" type="text" required>
+                        <label for="username" class="field-label">  نام کاربری </label>
+                    </div>
+                    <div class="effect-label mb-5">
+                        <input class="mat-form-field input-mail-footer" name="email" type="email" required>
+                        <label for="email" class="field-label"> ایمیل </label>
+                    </div>
+                    <div class="effect-label mb-5">
+                        <input class="mat-form-field input-mail-footer" name="password" type="password" required>
+                        <label for="password2" class="field-label"> رمز عبور </label>
+                    </div>
+                    <div class="effect-label">
+                        <input class="mat-form-field input-mail-footer" name="password2" type="password" required>
+                        <label for="password" class="field-label"> تایید رمز عبور </label>
+                    </div>
+                    <div class="form-group pt-6">
+                        <button class="btn button-accent w-20">ثبت نام</button>
+                    </div>
+
+                  </form>
+                  <div class="place-content-center">
+                      <div class="divider w-100"></div>
+                      <h3 class="text-muted  nowrap fw-500 fs-17 p-2">ورود با شبکه های اجتماعی</h3>
+                      <div class="divider w-100"></div>
+                  </div>
+                  <div  class="item-social-sign pb-5">
+                      <a href="" class="btn btn-primary mat-mini-fab"><i class="zmdi zmdi-twitter fs-25"></i></a>
+                      <a href="" class="btn btn-primary mat-mini-fab ml-3 mr-3"><i class="zmdi zmdi-google fs-25"></i></a>
+                      <a href="" class="btn btn-primary mat-mini-fab"><i class="zmdi zmdi-facebook fs-25"></i></a>
+                  </div>
+               </div>
+          </div>
+      </div>
+   </section>
+  </main>
+{% endblock %}

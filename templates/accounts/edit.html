@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <main id="main">
+      <section class="mt-4 mb-4">
+          <div class="container-fluid pl-0 pr-0">
+              <div class="item-edit-properties">
+                  <div class="row">
+                      <div class="col-xl-3  col-sm-6 col-lg-4 horizontal-account-sidenav" id="account-sidenav">
+                          <a class="close-card hide-xl-max"><i class="zmdi zmdi-close mr-3" id="close-card"></i></a>
+                          <div class="mat-card p-4">
+                              <div class="account-sidenav">
+                                  <div class="header-account-sidenav pb-3">
+                                      <i class="zmdi zmdi-account"></i>
+                                      <span class="text-muted pl-2 fs-25">حساب کاربری</span>
+                                  </div>
+                                  <div class="divider"></div>
+                                  <ul class="pt-4 p-2 pl-0">
+                                      <li class="p-3"><a href="{% url 'profile' user.id %}" class="text-muted"> <i class="zmdi zmdi-account fs-25"></i> <span class="pl-2 fs-14">حساب کاربری</span> </a></li>
+                                      <li class="p-3"><a href="{% url 'my_properties' user.id %}" class="text-muted"> <i class="zmdi zmdi-view-list fs-25"></i> <span class="pl-2 fs-14">املاک من</span> </a></li>
+                                      <li class="p-3"><a href="compare.html" class="text-muted"> <i class="zmdi zmdi-repeat fs-25"></i> <span class="pl-2 fs-14"> مقایسه</span> </a></li>
+                                      <li class="p-3"><a href="{% url 'submit_house'%}" class="text-muted"> <i class="zmdi zmdi-plus-circle fs-25"></i> <span class="pl-2 fs-14"> ثبت ملک</span> </a></li>
+                                      <li class="p-3"><a href="javascript:{document.getElementById('logout').submit()}" class="text-muted"> <i class="zmdi zmdi-power fs-25"></i> <span class="pl-2 fs-14">خروج</span>
+                                        <form  action="{% url 'logout' %}" method="POST" id="logout">
+                                          {% csrf_token %}
+                                          <input type="hidden">
+                                        </form>
+                                      </a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-9 mb-3 hide-xl-max">
+                          <div class="mat-card p-5 d-flex">
+                              <div class="w-50">
+                                  <i class="zmdi zmdi-more-vert fs-24 pointer-event" id="cl-account-sidenav"></i>
+                              </div>
+                              <div class="w-50 text-right">
+                                  <h3 class="fs-17 mb-0 pt-1 fw-600 text-muted"> حساب من</h3>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-9 col-lg-8 col-sm-12">
+                          <div class="bg-drawer-backdrop hiden-xl"></div>
+                          <div class="mat-card p-4">
+                              <div id="accordion" class="expansion-panel">
+                                  <div class="accordion">
+                                      <div class="accordion-header collapsed expansion-panel-header" data-toggle="collapse" data-target="#panel-body-1">
+                                          <h4 class="fs-15 pt-4">اطاعات پایه</h4>
+                                      </div>
+                                      <div class="accordion-body collapse show expansion-panel-body" id="panel-body-1" data-parent="#accordion">
+                                          <div class="flex-row p-4">
+                                              <h1 class="text-center fs-28">پایه </h1>
+                                              <div class="form-group mt-3">
+                                                  <label class="form-field-label">عنوان *</label>
+                                                  <input type="text" class="form-control dropdown-toggle" value="{{ house.title }}">
+                                              </div>
+                                              <div class="form-group mt-5">
+                                                  <label class="form-field-label">توضیحات *</label>
+                                                  <textarea type="text" class="form-control text-left" rows="5">{{ house.description }}
+  </textarea>
+                                              </div>
+                                              <div class="row mt-5">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                          <label class="form-field-label">قیمت *</label>
+                                                          <input type="text" class="form-control dropdown-toggle" value="{{ house.price }} تومان">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                          <label class="form-field-label">قیمت *</label>
+                                                          <input type="text" class="form-control dropdown-toggle" value="1160000 تومان">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-xl-12">
+                                                      <p class="mt-6">
+                                                          <span class="uppercase fw-500">تصویر </span>
+                                                          <span class="text-muted mx-3 fs-14">(حداکثر 8 تصویر)</span>
+                                                      </p>
+                                                      <div class="item-image-preview">
+                                                          <div class="file-container">
+                                                              <img src={{ house.photo_main.url }} alt="">
+                                                              <a href="#" class="btn btn-trash-img"> <i class="zmdi zmdi-delete fs-22 middle"></i> </a>
+                                                          </div>
+                                                          <div class="file-container">
+                                                              <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="">
+                                                              <a href="#" class="btn btn-trash-img"> <i class="zmdi zmdi-delete fs-22 middle"></i> </a>
+                                                          </div>
+                                                          <div class="file-container">
+                                                              <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="">
+                                                              <a href="#" class="btn btn-trash-img"> <i class="zmdi zmdi-delete fs-22 middle"></i> </a>
+                                                          </div>
+                                                          <div class="file-container">
+                                                              <img src="{% static 'img/apartment/1-medium.jpg' %}" alt="">
+                                                              <a href="#" class="btn btn-trash-img"> <i class="zmdi zmdi-delete fs-22 middle"></i> </a>
+                                                          </div>
+                                                          <div class="file-container input-file-dropzone">
+                                                              <label class="text-center mb-0 pointer-event">   <i class="zmdi zmdi-plus fs-40"></i> <input type="file"> </label>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row mt-7 mb-2">
+                                                  <div class="col-xl-12 text-right">
+                                                      <button class="btn btn-primary next-Btn" type="button">بعد</button>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="accordion-header collapsed expansion-panel-header " data-toggle="collapse" data-target="#panel-body-2">
+                                          <h4 class="fs-15 pt-4">نشانی</h4>
+                                      </div>
+                                      <div class="accordion-body collapse  expansion-panel-body" id="panel-body-2" data-parent="#accordion">
+                                          <div class="p-4">
+                                              <h1 class="text-center fs-28">نشانی</h1>
+                                              <div class="row mt-3">
+                                                  <div class="form-group col-xl-12">
+                                                      <label class="form-field-label">شهر *</label>
+                                                      <input type="text" class="form-control dropdown-toggle" value="{{ house.city }}">
+                                                  </div>
+                                              </div>
+                                              <div class="row mt-3">
+                                                  <div class="col-xl-6 col-sm-6 col-md-6 mb-4">
+                                                      <div class="dropdown">
+                                                          <label class="form-field-label">نوع املاک</label>
+                                                          <button class="btn btn-dropdown-toggle dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                                              انتخاب
+                                                          </button>
+                                                          <div class="dropdown-menu mat-select-panel animated zoomIn w-100" id="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item text-gray fs-14" id="option-text1">خانه</a>
+                                                            <a class="dropdown-item text-gray fs-14" id="option-text1">ویلا</a>
+                                                            <a class="dropdown-item text-gray fs-14" id="option-text1">مغازه</a>
+                                                            <a class="dropdown-item text-gray fs-14" id="option-text2">آپارتمان</a>
+                                                            <a class="dropdown-item text-gray fs-14" id="option-text3">دفتر کار</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-xl-6 col-sm-6 col-md-6">
+                                                    <div class="form-group col-xl-12">
+                                                        <label class="form-field-label">کدپستی *</label>
+                                                        <input type="text" class="form-control dropdown-toggle" value="-----------">
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row mt-3">
+                                                  <div class="col-xl-6 col-sm-6 col-md-6">
+                                                      <div class="form-group">
+                                                          <label class="form-field-label">نوع معامله</label>
+                                                          <button class="btn btn-dropdown-toggle dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+                                                              وضعیت املاک
+                                                          </button>
+                                                          <ul class="dropdown-menu animated zoomIn property-status mat-select-panel w-96" id="dropdown-menu1">
+                                                              <li>
+                                                                  <label class="mat-checkbox">
+                                                                      <span class="txt-mat-checkbox">برای فروش</span>
+                                                                      <input type="checkbox" value="فروش">
+                                                                      <span class="checkmark"></span>
+                                                                  </label>
+                                                              </li>
+                                                              <li>
+                                                                  <label class="mat-checkbox">
+                                                                      <span class="txt-mat-checkbox">برای اجاره</span>
+                                                                      <input type="checkbox" value="اجاره">
+                                                                      <span class="checkmark"></span>
+                                                                  </label>
+                                                              </li>
+                                                              <li>
+                                                                  <label class="mat-checkbox">
+                                                                      <span class="txt-mat-checkbox">پیشنهاد ویژه</span>
+                                                                      <input type="checkbox" value="ویژه">
+                                                                      <span class="checkmark"></span>
+                                                                  </label>
+                                                              </li>
+                                                              <li>
+                                                                  <label class="mat-checkbox">
+                                                                      <span class="txt-mat-checkbox">مشارکت</span>
+                                                                      <input type="checkbox" value="مشارکت">
+                                                                      <span class="checkmark"></span>
+                                                                  </label>
+                                                              </li>
+                                                          </ul>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-xl-6 col-sm-6 col-md-6">
+                                                    <div class="form-group col-xl-12">
+                                                        <label class="form-field-label">خیابان *</label>
+                                                        <input type="text" class="form-control dropdown-toggle" value="{{ house.address }}">
+                                                    </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row mt-6 mb-2">
+                                                  <div class="col-xl-6 col-6">
+                                                      <div class="text-left">
+                                                          <button class="btn btn-primary prev-Btn" type="button"> بازگشت</button>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-xl-6 col-6">
+                                                      <div class="text-right">
+                                                          <button class="btn btn-primary next-Btn" type="button">بعد</button>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock %}

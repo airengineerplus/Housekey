@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main id="main">
+   <section>
+      <div class="container-fluid">
+          <div class="row item-login-form mt-6 mb-5">
+              <div class="mat-card content-center col-xl-5">
+                  <h1 class="fs-25 fw-600 pt-6">ورود</h1>
+                  <!-- Alerts -->
+                  {% include '_alerts.html' %}
+                  <form action="{% url 'login' %}" method="POST">
+                      {% csrf_token %}
+                    <div class="effect-label mt-6 mb-5">
+                        <input class="mat-form-field input-mail-footer"  name="username" type="text" required>
+                        <label for="username" class="field-label">ام کاربری </label>
+                    </div>
+                    <div class="effect-label">
+                        <input class="mat-form-field input-mail-footer"  name="password" type="password" required>
+                        <label  for="password2" class="field-label"> رمز عبور </label>
+                    </div>
+                    <div class="pt-5">
+                        <a href="{% url 'signup' %}"><span class="mat-button-wrapper text-crimson">اگر ثبت نام نکرده اید؟ ثبت نام کنید</span></a>
+                    </div>
+                    <div class="form-group pt-4">
+                        <button class="btn button-accent w-20">ورود</button>
+                    </div>
+                </form>
+                  <div class="place-content-center">
+                      <div class="divider w-100"></div>
+                      <h3 class="text-muted  nowrap fw-500 fs-17 p-2">ورود با شبکه های اجتماعی</h3>
+                      <div class="divider w-100"></div>
+                  </div>
+                  <div  class="item-social-sign">
+                      <a href="" class="btn btn-primary mat-mini-fab"><i class="zmdi zmdi-twitter fs-25"></i></a>
+                      <a href="" class="btn btn-primary mat-mini-fab ml-3 mr-3"><i class="zmdi zmdi-google fs-25"></i></a>
+                      <a href="" class="btn btn-primary mat-mini-fab"><i class="zmdi zmdi-facebook fs-25"></i></a>
+                  </div>
+                  <div class="float-left pt-6">
+                      <a href="" class="btn text-gray">بازیابی رمز عبور <i class="zmdi zmdi-key"></i></a>
+                  </div>
+               </div>
+          </div>
+      </div>
+   </section>
+  </main>
+{% endblock %}
